@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --warm-red: #ff4f47;
+  --outer-space: #202954;
+  --perfect-white: #f7f7f7;
+  --space-cadet: #151737;
+}
