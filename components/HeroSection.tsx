@@ -1,21 +1,38 @@
 import { Button } from "./ui/button";
 import Image from "next/image";
 import BannerImage from "../assets/banner.jpg";
-import { MoveUpRight } from "lucide-react";
 import { auth, signIn } from "@/auth";
 import Link from "next/link";
+import StatsCard from "./StatsCard";
 
 export default async function HeroSection() {
     const session = await auth();
 
+    const statsData = [
+        {
+            value: "100M+",
+            description: "Startups worldwide"
+        },
+        {
+            value: "$300B+",
+            description: "Invested in startups yearly",
+            tag: "Funding"
+        },
+        {
+            value: "60%",
+            description: "of founders struggle to find the right co-founder.",
+            isDark: true
+        }
+    ];
+
     return (
-        <div className="py-12">
-            <div className="px-6 flex flex-col justify-center h-full">
-                <h1 className="text-7xl font-bold pb-5 uppercase">
+        <div className="py-6 md:py-12">
+            <div className="px-4 md:px-6 flex flex-col justify-center h-full">
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold pb-5 uppercase">
                     Pitch. Connect. Grow.
                 </h1>
-                <div className="flex justify-between">
-                    <p className="text-xl">Join a thriving startup ecosystem and unlock new opportunities.</p>
+                <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0">
+                    <p className="text-lg md:text-xl">Join a thriving startup ecosystem and unlock new opportunities.</p>
                     <div className="flex items-center gap-5">
                         {/* Right - Buttons */}
                         {session && session?.user ? (
@@ -38,47 +55,25 @@ export default async function HeroSection() {
                         )}
                     </div>
                 </div>
-                <span className="pt-12 pb-12">
+                <span className="pt-8 md:pt-12 pb-8 md:pb-12 block">
                     <Image
                         src={BannerImage}
                         width={3870}
                         height={2500}
-                        className="w-full max-h-96 object-cover rounded-4xl grayscale contrast-125 drop-shadow-md shadow-md"
+                        className="w-full max-h-[200px] md:max-h-96 object-cover rounded-2xl md:rounded-4xl grayscale contrast-125 shadow-md"
                         alt="Networking and startup pitch event"
                     />
                 </span>
-                <div className="grid grid-cols-3 gap-4">
-                    {/* Global Startups */}
-                    <div className="bg-[#e9e9e9] px-12 py-6 rounded-4xl shadow-md">
-                        <div className="text-4xl font-bold pb-2">
-                            <p>100M+</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <p>Startups worldwide</p>
-                            <div className="bg-black text-white p-2 rounded-full">
-                                <MoveUpRight />
-                            </div>
-                        </div>
-                    </div>
-                    {/* Funding Raised */}
-                    <div className="bg-[#e9e9e9] px-12 py-6 rounded-4xl shadow-md">
-                        <div className="pb-2 flex justify-between">
-                            <p className="text-4xl font-bold">$300B+</p>
-                            <div className="text-black rounded-4xl border border-black flex justify-center items-center px-5 text-sm">
-                                <p>Funding</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Invested in startups yearly</p>
-                        </div>
-                    </div>
-                    {/* Success Factors */}
-                    <div className="bg-black px-12 py-6 rounded-4xl shadow-md">
-                        <div className="pb-2">
-                            <p className="text-4xl text-white font-bold pb-2">60%</p>
-                            <p className="text-gray-100">of founders struggle to find the right co-founder.</p>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {statsData.map((stat, index) => (
+                        <StatsCard
+                            key={index}
+                            value={stat.value}
+                            description={stat.description}
+                            tag={stat.tag}
+                            isDark={stat.isDark}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
