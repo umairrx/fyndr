@@ -2,9 +2,14 @@
 
 @plugin "tailwindcss-animate";
 
+@theme {
+  --color-custom-red: #ff4f47;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --space-cadet: #151737;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -38,11 +43,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --link: oklch(0.205 0 0);
 }
 
 .dark {
-  --background: #09090b;
+  --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -74,7 +78,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
-  --link: oklch(0.985 0 0); /* This makes links white in dark mode */
 }
 
 @theme inline {
@@ -114,7 +117,15 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-link: var(--link);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 body {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,7 @@ const Navbar = async () => {
                 {/* Left - Logo */}
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Image src="/Logo.svg" alt="logo" width={50} height={50} className="hover:opacity-80 transition-all duration-200" />
+                        <span className="text-3xl font-extrabold">Fynd<span className="text-[#9d9d9d]">r</span></span>
                     </Link>
                 </div>
 
