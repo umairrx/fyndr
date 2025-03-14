@@ -8,22 +8,22 @@ import { Menu, X } from "lucide-react";
 const Navbar = async () => {
     const session = await auth();
     return (
-        <nav className="w-full dark:border-b dark:border-border bg-background">
+        <nav className="w-full dark:border-b dark:border-border bg-background-black text-primary-color">
             <div className="px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Left - Logo */}
                     <div className="flex-shrink-0">
                         <Link href="/">
-                            <span className="text-3xl font-extrabold">Fynd<span className="text-[#9d9d9d]">r</span></span>
+                            <span className="text-3xl font-extrabold">Fynd<span className="text-secondary-color">r</span></span>
                         </Link>
                     </div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
-                        <Link href="/why" className="text-muted-foreground hover:text-foreground transition-colors">Why</Link>
-                        <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">Faq</Link>
-                        <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact Us</Link>
+                        <Link href="/about" className="text-custom-gray hover:text-white transition-colors">About</Link>
+                        <Link href="/why" className="text-custom-gray hover:text-white transition-colors">Why</Link>
+                        <Link href="/faq" className="text-custom-gray hover:text-white transition-colors">Faq</Link>
+                        <Link href="/contact" className="text-custom-gray hover:text-white transition-colors">Contact Us</Link>
                     </div>
 
                     {/* Desktop Auth */}
@@ -37,7 +37,7 @@ const Navbar = async () => {
                                     "use server";
                                     await signOut({ redirectTo: "/" });
                                 }}>
-                                    <Button variant="outline">Logout</Button>
+                                    <Button variant="secondary">Logout</Button>
                                 </form>
                                 <Avatar>
                                     <AvatarImage src={session?.user?.image ?? undefined} alt={`${session?.user?.name ?? 'User'} Avatar`} />
@@ -61,7 +61,7 @@ const Navbar = async () => {
 
                     {/* Mobile Menu Button and Dialog */}
                     <div className="md:hidden">
-                        <Button variant="ghost" size="icon" className="peer" aria-label="Menu">
+                        <Button variant="secondary" size="icon" className="peer" aria-label="Menu">
                             <Menu className="h-6 w-6" />
                         </Button>
                         <div className="fixed inset-0 z-50 hidden peer-focus:block hover:block">
@@ -71,16 +71,16 @@ const Navbar = async () => {
                                     <Link href="/" className="text-2xl font-bold">
                                         Fynd<span className="text-[#9d9d9d]">r</span>
                                     </Link>
-                                    <Button variant="ghost" size="icon" className="focus:peer-hidden">
+                                    <Button variant="secondary" size="icon" className="focus:peer-hidden">
                                         <X className="h-6 w-6" />
                                     </Button>
                                 </div>
                                 <div className="flex flex-col gap-6">
                                     <div className="flex flex-col gap-4">
-                                        <Link href="/about" className="text-lg text-muted-foreground hover:text-foreground transition-colors">About</Link>
-                                        <Link href="/why" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Why</Link>
-                                        <Link href="/faq" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Faq</Link>
-                                        <Link href="/contact" className="text-lg text-muted-foreground hover:text-foreground transition-colors">Contact Us</Link>
+                                        <Link href="/about" className="text-lg text-custom-gray hover:text-white transition-colors">About</Link>
+                                        <Link href="/why" className="text-lg text-custom-gray hover:text-white transition-colors">Why</Link>
+                                        <Link href="/faq" className="text-lg text-custom-gray hover:text-white transition-colors">Faq</Link>
+                                        <Link href="/contact" className="text-lg text-custom-gray hover:text-white transition-colors">Contact Us</Link>
                                     </div>
                                     <div className="border-t pt-6 flex flex-col gap-4">
                                         {session && session?.user ? (
@@ -103,7 +103,7 @@ const Navbar = async () => {
                                                     "use server";
                                                     await signOut({ redirectTo: "/" });
                                                 }} className="w-full">
-                                                    <Button variant="outline" className="w-full">Logout</Button>
+                                                    <Button variant="secondary" className="w-full">Logout</Button>
                                                 </form>
                                             </>
                                         ) : (

@@ -3,7 +3,15 @@
 @plugin "tailwindcss-animate";
 
 @theme {
-  --color-custom-red: #ff4f47;
+  --color-background-black: #111111;
+  --color-background-white: #f8f8f8;
+  --color-primary-color: #f8f8f8;
+  --color-secondary-color: #666666;
+  --color-button-primary: #101010;
+  --color-button-secondary: #d5ff2f;
+  --color-custom-gray: #d5d5d5;
+  --color-custom-gray-dark: #a2a2a2;
+  --color-custom-gray-bg: #f3f3f3;
 }
 
 @custom-variant dark (&:is(.dark *));
