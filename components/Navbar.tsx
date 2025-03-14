@@ -60,13 +60,13 @@ const Navbar = async () => {
                     </div>
 
                     {/* Mobile Menu Button and Dialog */}
-                    <div className="md:hidden">
+                    <div className="md:hidden bg-red-700">
                         <Button variant="secondary" size="icon" className="peer" aria-label="Menu">
                             <Menu className="h-6 w-6" />
                         </Button>
                         <div className="fixed inset-0 z-50 hidden peer-focus:block hover:block">
-                            <div className="fixed inset-0 bg-background/80 backdrop-blur-sm" />
-                            <div className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-background p-6 shadow-lg">
+                            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" />
+                            <div className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-black p-6 shadow-lg">
                                 <div className="flex items-center justify-between mb-8">
                                     <Link href="/" className="text-2xl font-bold">
                                         Fynd<span className="text-[#9d9d9d]">r</span>

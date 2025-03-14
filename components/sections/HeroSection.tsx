@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import StatsCard from "../StatsCard";
 import TrueFocus from "../blocks/TrueFocus/TrueFocus";
-import SplitText from "../blocks/SplitText/SplitText";
 import PixelTransition from "../blocks/Animations/PixelTransition/PixelTransition";
+import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
 
 export default async function HeroSection() {
     const session = await auth();
@@ -29,9 +29,6 @@ export default async function HeroSection() {
             isDark: true
         }
     ];
-
-
-
     return (
         <div className="py-6 md:py-12 bg-background-black text-primary-color">
             <div className="px-4 md:px-6 flex flex-col justify-center h-full">
@@ -47,8 +44,8 @@ export default async function HeroSection() {
                     />
                 </h1>
                 <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0">
-                    <SplitText text="Join a thriving startup ecosystem and unlock new opportunities." delay={20} />
-                    <div className="flex items-center gap-5">
+                    <div className="max-sm:text-center"> <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>Join a thriving startup ecosystem and unlock new opportunities.</FadeContent></div>
+                    <div className="flex items-center max-sm:justify-center gap-5">
                         {/* Right - Buttons */}
                         {session && session?.user ? (
                             <div className="flex items-center gap-4">

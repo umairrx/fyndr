@@ -83,7 +83,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
 
   return (
     <div
-      className="relative flex gap-4  flex-wrap"
+      className="relative flex flex-wrap max-md:justify-center items-center gap-2 md:gap-4 w-full p-4"
       ref={containerRef}
     >
       {words.map((word, index) => {
@@ -91,8 +91,10 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
         return (
           <span
             key={index}
-            ref={(el) => (wordRefs.current[index] = el)}
-            className="relative text-[3rem] font-black cursor-pointer"
+            ref={(el) => {
+              wordRefs.current[index] = el;
+            }}
+            className="relative text-xl md:text-[3rem] font-black cursor-pointer text-center"
             style={
               {
                 filter: manualMode
@@ -100,8 +102,8 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                     ? `blur(0px)`
                     : `blur(${blurAmount}px)`
                   : isActive
-                  ? `blur(0px)`
-                  : `blur(${blurAmount}px)`,
+                    ? `blur(0px)`
+                    : `blur(${blurAmount}px)`,
                 transition: `filter ${animationDuration}s ease`,
               } as React.CSSProperties
             }
