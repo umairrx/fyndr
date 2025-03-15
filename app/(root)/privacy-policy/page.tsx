@@ -77,8 +77,8 @@ const PrivacyPolicy = () => {
                     <p>
                         By using our platform, you agree to the collection and use of information in accordance with this policy.
                         If you have any questions or concerns, please contact us at{" "}
-                        <a href="mailto:privacy@fyndr.com" className="text-primary-color hover:underline">
-                            privacy@fyndr.com
+                        <a href="mailto:umairniazidev@gmail.com" className="text-primary-color hover:underline">
+                            umairniazidev@gmail.com
                         </a>.
                     </p>
                 </div>
@@ -98,8 +98,8 @@ const PrivacyPolicy = () => {
                     <h2 className="text-xl font-semibold">Contact Us</h2>
                     <p className="text-primary-color/70">
                         If you have any questions about this Privacy Policy, please contact us at{" "}
-                        <a href="mailto:privacy@fyndr.com" className="text-primary-color hover:underline">
-                            privacy@fyndr.com
+                        <a href="mailto:umairniazidev@gmail.com" className="text-primary-color hover:underline">
+                            umairniazidev@gmail.com
                         </a>
                         .
                     </p>

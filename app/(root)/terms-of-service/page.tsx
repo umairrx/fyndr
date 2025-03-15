@@ -77,8 +77,8 @@ const TermsOfService = () => {
                 <p>
                     Please read these terms carefully before accessing or using our platform. If you have any questions,
                     please contact us at{" "}
-                    <a href="mailto:contact@fyndr.com" className="text-primary-color hover:underline">
-                        contact@fyndr.com
+                    <a href="mailto:umairniazidev@gmail.com" className="text-primary-color hover:underline">
+                        umairniazidev@gmail.com
                     </a>.
                 </p>
             </div>
@@ -100,8 +100,8 @@ const TermsOfService = () => {
                 <h2 className="text-xl font-semibold">Contact Us</h2>
                 <p className="text-primary-color/70">
                     If you have any questions about these Terms of Service, please contact us at{" "}
-                    <a href="mailto:contact@fyndr.com" className="text-primary-color hover:underline">
-                        contact@fyndr.com
+                    <a href="mailto:umairniazidev@gmail.com" className="text-primary-color hover:underline">
+                        umairniazidev@gmail.com
                     </a>
                     .
                 </p>
