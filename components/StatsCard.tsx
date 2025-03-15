@@ -9,7 +9,6 @@ interface StatsCardProps {
 }
 
 export default function StatsCard({ value, description, tag, isDark = false }: StatsCardProps) {
-  // New regex to extract prefix, numeric part, and suffix e.g. "$300B+"
   const match = value.match(/^(.*?)([\d,\,\.]+)(.*?)$/);
   const isNumeric = Boolean(match) && !isNaN(parseFloat(match![2].replace(/,/g, '')));
   const prefix = match ? match[1] : "";
