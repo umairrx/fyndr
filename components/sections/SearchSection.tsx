@@ -6,17 +6,20 @@ import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
 
 const SearchSection = () => {
     return (
-        <div className="px-6 py-6 min-h-screen flex flex-col bg-background-black text-primary-color">
-            <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                GET YOUR STARTUP IDEA
-            </FadeContent>
-            <div className="flex items-center">
+        <div className="px-6 py-3 md:py-6  flex flex-col bg-background-black text-primary-color" id="search">
+            <div className="pb-6">
+                <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                    GET YOUR STARTUP IDEA
+                </FadeContent>
+            </div>
+            <div className="flex items-center" >
                 <FadeContent className="relative flex-grow">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-color" />
                     <Input
                         placeholder="Search your startup niche here"
-                        className="pl-10 w-full text-primary-color border border-prtext-primary-color"
+                        className="pl-10 w-full text-primary-color border border-custom-gray-dark md:text-2xl placeholder:text-lg md:placeholder:text-2xl py-4 md:py-5"
                     />
+
                 </FadeContent>
                 <button
                     type="button"

@@ -35,7 +35,7 @@ export default async function HeroSection() {
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold pb-5 uppercase text-primary-color">
                     <TrueFocus
                         sentence="Pitch. Connect. Grow."
-                        manualMode={true}
+                        manualMode={false}
                         blurAmount={5}
                         borderColor="white"
                         glowColor="red"

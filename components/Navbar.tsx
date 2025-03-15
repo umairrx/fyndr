@@ -20,10 +20,10 @@ const Navbar = async () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <Link href="/about" className="text-custom-gray hover:text-white transition-colors">About</Link>
-                        <Link href="/why" className="text-custom-gray hover:text-white transition-colors">Why</Link>
-                        <Link href="/faq" className="text-custom-gray hover:text-white transition-colors">Faq</Link>
-                        <Link href="/contact" className="text-custom-gray hover:text-white transition-colors">Contact Us</Link>
+                        <Link href="#search" className="text-custom-gray hover:text-white transition-colors">Search</Link>
+                        <Link href="#why" className="text-custom-gray hover:text-white transition-colors">Why</Link>
+                        <Link href="#faq" className="text-custom-gray hover:text-white transition-colors">Faq</Link>
+                        <Link href="#contact" className="text-custom-gray hover:text-white transition-colors">Contact Us</Link>
                     </div>
 
                     {/* Desktop Auth */}
@@ -60,8 +60,8 @@ const Navbar = async () => {
                     </div>
 
                     {/* Mobile Menu Button and Dialog */}
-                    <div className="md:hidden bg-red-700">
-                        <Button variant="secondary" size="icon" className="peer" aria-label="Menu">
+                    <div className="md:hidden">
+                        <Button variant="secondary" size="icon" className="peer !bg-white/5 !text-white" aria-label="Menu">
                             <Menu className="h-6 w-6" />
                         </Button>
                         <div className="fixed inset-0 z-50 hidden peer-focus:block hover:block">
@@ -71,7 +71,7 @@ const Navbar = async () => {
                                     <Link href="/" className="text-2xl font-bold">
                                         Fynd<span className="text-[#9d9d9d]">r</span>
                                     </Link>
-                                    <Button variant="secondary" size="icon" className="focus:peer-hidden">
+                                    <Button variant="default" size="icon" className="focus:peer-hidden">
                                         <X className="h-6 w-6" />
                                     </Button>
                                 </div>

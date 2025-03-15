@@ -37,7 +37,7 @@ const startupData = [
 
 const StartupSection = () => {
     return (
-        <div className='py-6'>
+        <div className='pt-6 md:pt-12'>
             <h1>All Startups</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
                 {startupData.map((startup, index) => (
