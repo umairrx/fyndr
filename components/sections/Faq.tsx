@@ -1,5 +1,4 @@
 import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
-import BlurText from "../blocks/TextAnimations/BlurText/BlurText";
 import { HelpCircle, Users, Shield, Building, HandshakeIcon, MessageCircleQuestion, CircuitBoard } from "lucide-react";
 
 const Faq = () => {
@@ -44,10 +43,9 @@ const Faq = () => {
     return (
         <div className="text-primary-color bg-background-black px-4 sm:px-6 py-12" id="faq">
             <div className="mb-12">
-                <BlurText 
-                    text="Frequently Asked Questions" 
-                    className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3" 
-                />
+                <FadeContent className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3" >
+                    Frequently Asked Questions
+                </FadeContent>
                 <FadeContent className="text-sm sm:text-base md:text-lg text-gray-400">
                     Everything you need to know about Fyndr
                 </FadeContent>
@@ -58,12 +56,12 @@ const Faq = () => {
                     const Icon = item.icon;
                     return (
                         <div key={index} className="group">
-                            <input 
-                                type="checkbox" 
-                                id={`faq-${index}`} 
-                                className="peer hidden" 
+                            <input
+                                type="checkbox"
+                                id={`faq-${index}`}
+                                className="peer hidden"
                             />
-                            <label 
+                            <label
                                 htmlFor={`faq-${index}`}
                                 className="flex justify-between items-center w-full px-4 sm:px-6 py-4 sm:py-6 
                                          border border-primary-color/20 rounded-xl sm:rounded-2xl 
@@ -82,7 +80,7 @@ const Faq = () => {
                                     ↓
                                 </span>
                             </label>
-                            
+
                             <div className="grid grid-rows-[0fr] transition-all duration-300 
                                           peer-checked:grid-rows-[1fr] border border-t-0 
                                           border-primary-color/20 rounded-b-xl sm:rounded-b-2xl">

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
-import BlurText from "../blocks/TextAnimations/BlurText/BlurText";
 import { Button } from "../ui/button";
 import { SendIcon } from "lucide-react";
 import ContactImage from "../../assets/contact-image.jpg";
@@ -41,8 +40,9 @@ const ContactUs = () => {
         <div className="text-primary-color py-3 md:py-12 bg-background-black min-h-screen" id="contact">
             <div className="mx-auto px-4 md:px-6">
                 <div className="mb-8 md:mb-12">
-                    <BlurText text="Get in Touch"
-                        className="uppercase tracking-wide text-gray-500 text-base sm:text-lg md:text-xl" />
+                    <FadeContent className="uppercase tracking-wide text-gray-500 text-base sm:text-lg md:text-xl" >
+                        Get in Touch
+                    </FadeContent>
 
                     <FadeContent duration={1200} delay={200}
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-2">

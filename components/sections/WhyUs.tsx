@@ -1,6 +1,5 @@
 import Image from "next/image";
 import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
-import BlurText from "../blocks/TextAnimations/BlurText/BlurText";
 import { Button } from "../ui/button";
 import { CheckCircle, Lightbulb, Users, TrendingUp } from "lucide-react";
 import TeamImage from "../../assets/team.jpg"
@@ -37,22 +36,23 @@ const WhyUs = () => {
             <div className="mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-12 lg:gap-16" id="why">
                     <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
-                        <BlurText text="Uniting Startups and Their Research" 
-                            className="uppercase tracking-wide text-gray-500 text-base sm:text-lg md:text-xl" />
+                        <FadeContent className="uppercase tracking-wide text-gray-500 text-base sm:text-lg md:text-xl" >
+                            Uniting Startups and Their Research
+                        </FadeContent>
 
-                        <FadeContent duration={1200} delay={200} 
+                        <FadeContent duration={1200} delay={200}
                             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold">
                             Why Choose Us?
                         </FadeContent>
 
-                        <FadeContent duration={1300} delay={400} 
+                        <FadeContent duration={1300} delay={400}
                             className="text-sm sm:text-base md:text-lg lg:text-2xl">
                             Discover a world of innovative startups and breakthrough research—all in one place.
                             We bring you the most comprehensive insights, connecting you with promising startups
                             and investors, while offering you a platform to share your own ideas.
                         </FadeContent>
 
-                        <FadeContent duration={1400} delay={600} 
+                        <FadeContent duration={1400} delay={600}
                             className="flex flex-wrap gap-4 pt-2">
                             <Button variant="default" className="w-full sm:w-auto">Learn More</Button>
                             <Button variant="secondary" className="w-full sm:w-auto">Contact Us</Button>
@@ -107,7 +107,7 @@ const WhyUs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

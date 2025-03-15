@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import BlurText from "@/components/blocks/TextAnimations/BlurText/BlurText";
 import { ArrowLeft, Shield } from "lucide-react";
+import FadeContent from "@/components/blocks/Animations/FadeContent/FadeContent";
 
 const PrivacyPolicy = () => {
     const lastUpdated = "November 15, 2023";
@@ -58,8 +58,9 @@ const PrivacyPolicy = () => {
                     <div>
                         <div className="flex items-center gap-2">
                             <Shield className="h-6 w-6 text-primary-color/80" />
-                            <BlurText text="PRIVACY"
-                                className="text-sm tracking-wider text-primary-color/60" />
+                            <FadeContent className="text-sm tracking-wider text-primary-color/60" >
+                                Privacy
+                            </FadeContent>
                         </div>
                     </div>
                 </div>
