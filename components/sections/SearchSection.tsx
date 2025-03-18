@@ -1,10 +1,12 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import { Input } from "../ui/input";
 import { Filter, Search } from "lucide-react";
 import StartupSection from "./StartupSection";
 import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
 
 const SearchSection = () => {
+    const [search, setSearch] = useState("");
     return (
         <div className="px-6 py-3 md:py-6  flex flex-col bg-background-black text-primary-color" id="search">
             <div className="pb-6">
@@ -18,6 +20,11 @@ const SearchSection = () => {
                     <Input
                         placeholder="Search your startup niche here"
                         className="pl-10 w-full text-primary-color border border-custom-gray-dark md:text-2xl placeholder:text-lg md:placeholder:text-2xl py-4 md:py-5"
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                setSearch(e.currentTarget.value);
+                            }
+                        }}
                     />
 
                 </FadeContent>
@@ -29,7 +36,7 @@ const SearchSection = () => {
                 </button>
             </div>
 
-            <StartupSection />
+            <StartupSection searchQuery={search} />
         </div>
     );
 };
