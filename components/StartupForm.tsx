@@ -13,24 +13,38 @@ import { useRouter } from "next/navigation";
 const StartupForm = () => {
   const [errors, _setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); // added submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
 
   const handleFormSubmit = async (formData: FormData) => {
+    console.log("🔍 StartupForm: Beginning form submission");
     try {
       setIsSubmitting(true);
 
-      formData.append("pitch", pitch);
+      console.log(
+        "📝 StartupForm: Form data entries:",
+        Object.fromEntries(formData.entries())
+      );
 
+      formData.append("pitch", pitch);
+      console.log("📄 StartupForm: Pitch content added, length:", pitch.length);
+
+      console.log("🌐 StartupForm: Sending request to /api/create-pitch");
       const res = await fetch("/api/create-pitch", {
         method: "POST",
         body: formData,
       });
 
+      console.log("✅ StartupForm: Response status:", res.status);
       const result = await res.json();
+      console.log("📊 StartupForm: Response data:", result);
 
       if (result.status === "SUCCESS") {
+        console.log(
+          "🎉 StartupForm: Success! Redirecting to startup page",
+          result._id
+        );
         toast({
           title: "Success",
           description: "Your startup pitch has been created successfully",
@@ -38,6 +52,7 @@ const StartupForm = () => {
 
         router.push(`/startup/${result._id}`);
       } else {
+        console.error("❌ StartupForm: Error from API:", result.error);
         toast({
           title: "Error",
           description: "Please check your inputs and try again",
@@ -47,6 +62,7 @@ const StartupForm = () => {
 
       return result;
     } catch (err) {
+      console.error("💥 StartupForm: Exception caught:", err);
       toast({
         title: "Error",
         description: "An unexpected error has occurred",
@@ -58,6 +74,7 @@ const StartupForm = () => {
         status: "ERROR",
       };
     } finally {
+      console.log("🏁 StartupForm: Request completed");
       setIsSubmitting(false);
     }
   };

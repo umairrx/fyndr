@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import markdownit from "markdown-it";
+import Link from "next/link"; // Fixed import
 
 const md = markdownit();
 
@@ -16,7 +17,8 @@ export default async function StartupContent({ id }: StartupContentProps) {
   if (!startup) {
     notFound();
   }
-  const parsedContent = md.render(startup?.pitch || "");
+
+  const parsedContent = md.render(startup.pitch || "");
 
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
@@ -68,7 +70,10 @@ export default async function StartupContent({ id }: StartupContentProps) {
           <h3 className="text-lg md:text-xl font-bold mb-4">
             About the Founder
           </h3>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 bg-gray-800/40 p-4 rounded-lg hover:bg-gray-800/60 transition-colors duration-300">
+          <Link
+            href={`/user/${startup.author._id}`}
+            className="flex flex-col md:flex-row items-start md:items-center gap-4 bg-black/30 p-4 rounded-lg hover:bg-black/60 transition-colors duration-300"
+          >
             {startup.author.image && (
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-indigo-300">
                 <Image
@@ -88,7 +93,7 @@ export default async function StartupContent({ id }: StartupContentProps) {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       )}
     </div>
