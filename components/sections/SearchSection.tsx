@@ -1,42 +1,30 @@
 'use client';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Input } from "../ui/input";
 import { Filter, Search, X } from "lucide-react";
 import FadeContent from "../blocks/Animations/FadeContent/FadeContent";
-import { StartupSection } from "./StartupSection";
 
-const SearchSection = () => {
-    const [search, setSearch] = useState("");
-    const [searchInput, setSearchInput] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+interface SearchSectionProps {
+    searchInput: string;
+    setSearchInput: (value: string) => void;
+    clearSearch: () => void;
+}
+
+const SearchSection: React.FC<SearchSectionProps> = ({
+    searchInput,
+    setSearchInput,
+    clearSearch
+}) => {
     const startupSectionRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (searchInput) {
-            setIsLoading(true);
-            const timer = setTimeout(() => {
-                setSearch(searchInput);
-                setIsLoading(false);
-            }, 300);
-            return () => clearTimeout(timer);
-        } else {
-            setSearch("");
-        }
-    }, [searchInput]);
-
-    const clearSearch = () => {
-        setSearch("");
-        setSearchInput("");
-    };
 
     const handleFilterClick = () => {
         if (startupSectionRef.current) {
             startupSectionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    
+
     return (
-        <div className="px-6 py-3 md:py-6 flex flex-col bg-background-black text-primary-color">
+        <>
             <div className="pb-6">
                 <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                     GET YOUR STARTUP IDEA
@@ -70,9 +58,8 @@ const SearchSection = () => {
             </div>
 
             <div ref={startupSectionRef}>
-                <StartupSection search={search} isLoading={isLoading} clearSearch={clearSearch} />
             </div>
-        </div>
+        </>
     );
 };
 

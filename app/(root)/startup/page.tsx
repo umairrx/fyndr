@@ -1,9 +1,12 @@
-import React from 'react'
+"use server";
+import React from 'react';
+import { StartupSection } from '@/components/sections/StartupSection';
 
-const page = () => {
+export default async function StartupPage() {
+
   return (
-    <div>page</div>
+    <div className="px-6 py-3 md:py-6 flex flex-col bg-background-black text-primary-color">
+      <StartupSection />
+    </div>
   )
 }
-
-export default page

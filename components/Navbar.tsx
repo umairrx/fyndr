@@ -20,6 +20,7 @@ const Navbar = async () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
+                        <Link href="/startup" className="text-custom-gray hover:text-white transition-colors">Startups</Link>
                         <Link href="#search" className="text-custom-gray hover:text-white transition-colors">Search</Link>
                         <Link href="#why" className="text-custom-gray hover:text-white transition-colors">Why</Link>
                         <Link href="#faq" className="text-custom-gray hover:text-white transition-colors">Faq</Link>
@@ -77,10 +78,12 @@ const Navbar = async () => {
                                 </div>
                                 <div className="flex flex-col gap-6">
                                     <div className="flex flex-col gap-4">
-                                        <Link href="/about" className="text-lg text-custom-gray hover:text-white transition-colors">About</Link>
-                                        <Link href="/why" className="text-lg text-custom-gray hover:text-white transition-colors">Why</Link>
-                                        <Link href="/faq" className="text-lg text-custom-gray hover:text-white transition-colors">Faq</Link>
-                                        <Link href="/contact" className="text-lg text-custom-gray hover:text-white transition-colors">Contact Us</Link>
+                                        <Link href="/startup" className="text-custom-gray hover:text-white transition-colors">Startups</Link>
+
+                                        <Link href="#about" className="text-lg text-custom-gray hover:text-white transition-colors">About</Link>
+                                        <Link href="#why" className="text-lg text-custom-gray hover:text-white transition-colors">Why</Link>
+                                        <Link href="#faq" className="text-lg text-custom-gray hover:text-white transition-colors">Faq</Link>
+                                        <Link href="#contact" className="text-lg text-custom-gray hover:text-white transition-colors">Contact Us</Link>
                                     </div>
                                     <div className="border-t pt-6 flex flex-col gap-4">
                                         {session && session?.user ? (
