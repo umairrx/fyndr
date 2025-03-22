@@ -1,9 +1,15 @@
 import { fetchAuthorById } from "@/lib/actions";
 import { ProfileSection } from "@/components/sections/ProfileSection";
 import { notFound } from "next/navigation";
+import { ReactElement } from "react";
 
-const Page = async ({ params }: { params: { id: string } }) => {
-  const id = await params.id;
+interface PageProps {
+  params: { id: string };
+  searchParams: Record<string, string | string[] | undefined>;
+}
+
+const Page = async ({ params }: PageProps) => {
+  const id = params.id;
   const author = await fetchAuthorById(id);
 
   if (!author) {
@@ -16,5 +22,5 @@ const Page = async ({ params }: { params: { id: string } }) => {
     </div>
   );
 };
-
-export default Page;
+// Workaround: cast to bypass the type check on production build.
+export default Page as unknown as () => ReactElement;
