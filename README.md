@@ -13,7 +13,7 @@ Fyndr is a Next.js-based web application. This README will be updated as develop
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/umairniaziofficial/fyndr.git
+   git clone https://github.com/umairrx/fyndr.git
    cd fyndr
    ```
 
