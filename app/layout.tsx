@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 import "./globals.css";
-import "easymde/dist/easymde.min.css"
+import "@uiw/react-md-editor/markdown-editor.css";
 
 const workSans = localFont({
   src: [
