@@ -1,11 +1,42 @@
 import { Suspense } from "react";
 import StartupContent from "./startup-content";
 import { StartupSkeleton } from "./skeleton";
+import { Metadata } from "next";
+import { fetchStartupById } from "@/lib/actions";
 
 type SegmentParams = Record<string, string | string[] | undefined>;
 
 interface StartupPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: StartupPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const startup = await fetchStartupById(id);
+
+  if (!startup) {
+    return {
+      title: "Startup Not Found",
+    };
+  }
+
+  return {
+    title: startup.title,
+    description: startup.description,
+    openGraph: {
+      title: startup.title,
+      description: startup.description,
+      images: startup.image ? [{ url: startup.image }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: startup.title,
+      description: startup.description,
+      images: startup.image ? [startup.image] : [],
+    },
+  };
 }
 
 export default async function StartupPage({ params }: StartupPageProps) {
