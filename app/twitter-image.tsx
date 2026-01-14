@@ -11,6 +11,16 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  // Fetch the logo SVG
+  const logoSvg = await fetch(
+    new URL("../public/Logo.svg", import.meta.url)
+  ).then((res) => res.text());
+
+  // Convert to base64 data URI
+  const logoDataUri = `data:image/svg+xml;base64,${Buffer.from(
+    logoSvg
+  ).toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -93,21 +103,20 @@ export default async function Image() {
               gap: "20px",
             }}
           >
+            {/* Actual logo */}
             <div
               style={{
                 width: "70px",
                 height: "70px",
-                background: "#d5ff2f",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "0 0 60px rgba(213, 255, 47, 0.4)",
+                overflow: "hidden",
               }}
             >
-              <span style={{ fontSize: 36, fontWeight: 900, color: "#111111" }}>
-                F
-              </span>
+              <img src={logoDataUri} width={70} height={70} alt="Fynder Logo" />
             </div>
             <span
               style={{
