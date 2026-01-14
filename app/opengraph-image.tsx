@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Fynder - Find Your Startup Pitch";
+export const alt = "Fyndr - Connect, Collaborate, Create";
 export const size = {
   width: 1200,
   height: 630,
@@ -11,22 +11,12 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Fetch the logo SVG
-  const logoSvg = await fetch(
-    new URL("../public/Logo.svg", import.meta.url)
-  ).then((res) => res.text());
-
-  // Convert to base64 data URI
-  const logoDataUri = `data:image/svg+xml;base64,${Buffer.from(
-    logoSvg
-  ).toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
         style={{
           fontSize: 64,
-          background: "#111111",
+          background: "#0c0c0c",
           color: "white",
           width: "100%",
           height: "100%",
@@ -39,175 +29,146 @@ export default async function Image() {
           overflow: "hidden",
         }}
       >
-        {/* Yellow accent glow */}
+        {/* Abstract background shapes */}
         <div
           style={{
             position: "absolute",
-            top: "-200px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "800px",
-            height: "400px",
+            top: -100,
+            left: -100,
+            width: 500,
+            height: 500,
             background:
-              "radial-gradient(ellipse, rgba(213, 255, 47, 0.1) 0%, transparent 60%)",
+              "radial-gradient(circle, rgba(195, 245, 60, 0.1) 0%, transparent 70%)",
+            borderRadius: "50%",
+            display: "flex",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -100,
+            right: -100,
+            width: 500,
+            height: 500,
+            background:
+              "radial-gradient(circle, rgba(233, 32, 38, 0.08) 0%, transparent 70%)",
+            borderRadius: "50%",
             display: "flex",
           }}
         />
 
-        {/* Decorative dots pattern */}
+        {/* Grid pattern */}
         <div
           style={{
             position: "absolute",
-            bottom: 40,
-            left: 40,
-            display: "flex",
-            flexDirection: "column",
-            gap: 12,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage:
+              "linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+            opacity: 0.5,
           }}
-        >
-          {[0, 1, 2].map((row) => (
-            <div key={row} style={{ display: "flex", gap: 12 }}>
-              {[0, 1, 2].map((col) => (
-                <div
-                  key={col}
-                  style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background:
-                      row === 1 && col === 1
-                        ? "#d5ff2f"
-                        : "rgba(255,255,255,0.15)",
-                    display: "flex",
-                  }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+        />
 
         {/* Logo and brand */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "20px",
+            gap: "24px",
+            marginBottom: "30px",
+            zIndex: 10,
           }}
         >
+          {/* Inline SVG Logo */}
           <div
             style={{
+              width: "100px",
+              height: "100px",
               display: "flex",
               alignItems: "center",
-              gap: "20px",
+              justifyContent: "center",
             }}
           >
-            {/* Actual logo */}
+            <svg
+              width="100"
+              height="100"
+              viewBox="0 0 375 375"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <clipPath id="clip0">
+                  <path d="M 64 0 L 303 0 L 303 374.921875 L 64 374.921875 Z" />
+                </clipPath>
+              </defs>
+              <g clipPath="url(#clip0)">
+                <path
+                  fill="#e92026"
+                  d="M 186.699219 -0.0273438 C 185.613281 -0.0546875 184.492188 -0.0664062 183.375 -0.0664062 C 182.265625 -0.0664062 181.15625 -0.0546875 180.046875 -0.0273438 C 92.046875 2.210938 37.671875 97.246094 78.582031 175.191406 L 110.035156 235.144531 L 183.375 374.921875 L 209.171875 325.742188 C 198.628906 306.152344 188.054688 286.5625 177.496094 266.96875 C 161.363281 237.042969 145.234375 207.113281 129.101562 177.210938 C 120.90625 162.015625 113.09375 146.519531 110.957031 129.140625 C 105.800781 87.226562 141.546875 49.910156 183.085938 49.75 C 223.820312 49.589844 256.871094 82.535156 256.871094 123.210938 C 256.871094 163.789062 223.953125 196.675781 183.375 196.675781 C 182.035156 196.675781 180.710938 196.640625 179.382812 196.574219 L 228.292969 289.339844 L 256.734375 235.144531 L 288.160156 175.191406 C 329.078125 97.246094 274.703125 2.210938 186.695312 -0.0273438 Z"
+                />
+              </g>
+            </svg>
+          </div>
+          <span
+            style={{
+              fontWeight: 800,
+              fontSize: 80,
+              color: "#ffffff",
+              letterSpacing: "-0.03em",
+            }}
+          >
+            fyndr
+          </span>
+        </div>
+
+        {/* User avatars decoration */}
+        <div
+          style={{
+            display: "flex",
+            marginTop: 20,
+            marginBottom: 40,
+            zIndex: 10,
+          }}
+        >
+          {[0, 1, 2, 3].map((i) => (
             <div
+              key={i}
               style={{
-                width: "70px",
-                height: "70px",
+                width: 60,
+                height: 60,
                 borderRadius: "50%",
+                background: `#${["C3F53C", "e92026", "ffffff", "333333"][i]}`,
+                border: "4px solid #0c0c0c",
+                marginLeft: i === 0 ? 0 : -20,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 0 60px rgba(213, 255, 47, 0.4)",
-                overflow: "hidden",
+                fontSize: 24,
+                fontWeight: "bold",
+                color: "#0c0c0c",
               }}
             >
-              <img src={logoDataUri} width={70} height={70} alt="Fynder Logo" />
+              {i === 2 && "+"}
             </div>
-            <span
-              style={{
-                fontWeight: 900,
-                letterSpacing: "-0.03em",
-                fontSize: 80,
-              }}
-            >
-              Fynder
-            </span>
-          </div>
-
-          {/* Tagline */}
-          <div
-            style={{
-              fontSize: 30,
-              textAlign: "center",
-              maxWidth: "700px",
-              lineHeight: 1.4,
-              color: "#d5d5d5",
-            }}
-          >
-            Find Your Startup Pitch
-          </div>
-
-          {/* Feature highlight */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginTop: 32,
-            }}
-          >
-            <div
-              style={{
-                width: 40,
-                height: 2,
-                background: "#d5ff2f",
-                display: "flex",
-              }}
-            />
-            <span
-              style={{
-                fontSize: 16,
-                color: "#a2a2a2",
-                textTransform: "uppercase",
-                letterSpacing: "0.15em",
-              }}
-            >
-              Connect • Discover • Invest
-            </span>
-            <div
-              style={{
-                width: 40,
-                height: 2,
-                background: "#d5ff2f",
-                display: "flex",
-              }}
-            />
-          </div>
+          ))}
         </div>
 
-        {/* Decorative corner element */}
+        {/* Tagline */}
         <div
           style={{
-            position: "absolute",
-            top: 40,
-            right: 40,
-            display: "flex",
-            gap: 8,
+            fontSize: 32,
+            textAlign: "center",
+            maxWidth: "700px",
+            lineHeight: 1.4,
+            color: "#888888",
+            zIndex: 10,
           }}
         >
-          <div
-            style={{
-              width: 60,
-              height: 4,
-              background: "#d5ff2f",
-              borderRadius: 2,
-              display: "flex",
-            }}
-          />
-          <div
-            style={{
-              width: 20,
-              height: 4,
-              background: "rgba(213, 255, 47, 0.4)",
-              borderRadius: 2,
-              display: "flex",
-            }}
-          />
+          Find your perfect creative partner
         </div>
 
         {/* Domain footer */}
@@ -215,10 +176,10 @@ export default async function Image() {
           style={{
             position: "absolute",
             bottom: 40,
-            right: 40,
-            fontSize: 16,
-            color: "rgba(255, 255, 255, 0.3)",
+            fontSize: 18,
+            color: "#444444",
             letterSpacing: "0.05em",
+            zIndex: 10,
             display: "flex",
           }}
         >
